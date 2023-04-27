@@ -3,7 +3,8 @@ import { useLoader } from "../lib/useLoader";
 import { fetchJSON } from "../lib/http";
 import { ErrorMessage } from "./errorPage";
 import { NotLoggedInUsers } from "./notLoggedIn";
-import { ReadingsPage } from "./readingsPage";
+import { EmployeeDashboard } from "./employeePage";
+import { AdminDashboard } from "./adminPage";
 
 export function Frontpage(){    
     const { loading, error, data, reload } = useLoader(
@@ -25,9 +26,9 @@ export function Frontpage(){
         <div>
           {user ? (
                 user.role == "employee" ? (
-                <ReadingsPage user={user} reload={reload} />
+                <EmployeeDashboard user={user} reload={reload} />
             ) : (
-            <ReadingsPage user={user} reload={reload}/>
+            <AdminDashboard user={user} reload={reload}/>
             )
             ) : (
                 <NotLoggedInUsers/>

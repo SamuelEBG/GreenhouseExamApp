@@ -1,7 +1,15 @@
+import React, { useState } from "react";
 import { DisplayReadings } from "../components/displayReadings";
+import { DisplayLiveReadings } from "../components/liveReadings";
 import { LogOut } from "../components/logout";
 
-export function ReadingsPage(props){
+export function EmployeeDashboard(props){
+    /*
+    const [showGraph, setShowGraph] = useState(false);
+    const toggleGraph = () => {
+        setShowGraph(!showGraph);
+    };
+    */
 
     return (
         <>
@@ -13,7 +21,7 @@ export function ReadingsPage(props){
                 <LogOut reload={props.reload} />
             </div>
             <div>
-                <DisplayReadings />
+              <DisplayLiveReadings />
             </div>
         </>
     );
