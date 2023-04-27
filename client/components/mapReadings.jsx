@@ -3,7 +3,9 @@ import { Chart } from 'chart.js/auto';
 
 export function MapReadings(props) {
   console.log(props.readings);
-  const timestamps = props.readings.map((reading) => new Date(reading.modifiedDate));
+  const timestamps = props.readings.map((reading) => 
+      new Date(reading.modifiedDate)
+        .toLocaleTimeString([], { hour: '2-digit', minute:'2-digit', second:'2-digit' }));
   const temperatures = props.readings.map((reading) => reading.temperature);
 
   const chartRef = React.useRef();
@@ -25,15 +27,16 @@ export function MapReadings(props) {
       },
       options: {
         scales: {
-          xAxes: [
+          x: [
             {
-              type: "time",
+              type: 'time',
               time: {
-                unit: "minute",
+                tooltipFormat: 'HH:mm:ss', // format the tooltip to show only time
+                unit: 'minute',
               },
             },
           ],
-          yAxes: [
+          y: [
             {
               ticks: {
                 beginAtZero: true,

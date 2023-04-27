@@ -25,7 +25,7 @@ export function Frontpage(){
         <div>
           {user ? (
                 user.role == "employee" ? (
-                <EmployeeDashboard user={user} reload={reload} />
+                <ReadingsPage user={user} reload={reload} />
             ) : (
             <ReadingsPage user={user} reload={reload}/>
             )

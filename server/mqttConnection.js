@@ -66,7 +66,7 @@ mqttConnection.on("message", (topic, data) => {
     const element = topicParts[topicParts.length - 1];
     const greenhouseId = topicParts[topicParts.length - 2].split('-').pop();;
    
-    console.log("incoming message from mqtt greenhouse " + greenhouseId + " with element " +  element + " " + data.toString());
+    //console.log("incoming message from mqtt greenhouse " + greenhouseId + " with element " +  element + " " + data.toString());
     
     //readingsFromMqtt[lastTopicPart] = Number(data);
 
@@ -93,7 +93,7 @@ mqttConnection.on("message", (topic, data) => {
                 break;
         }
         readings.save()
-        console.log("saved " + element + " from greenhouse " +  greenhouseId + " to db");
+        //console.log("saved " + element + " from greenhouse " +  greenhouseId + " to db");
     }
 });
 
