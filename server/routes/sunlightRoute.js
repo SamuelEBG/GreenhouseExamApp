@@ -1,5 +1,5 @@
 const express = require('express');
-const SunlightModel = require("../models/readingsModels.js");
+const { SunlightModel } = require("../models/readingsModels.js");
 
 const router = express.Router();
 router.get('/', async function(req, res) {

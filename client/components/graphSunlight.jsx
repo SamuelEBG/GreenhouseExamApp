@@ -1,12 +1,12 @@
 import React from "react";
 import { Chart } from 'chart.js/auto';
 
-export function MapReadings(props) {
+export function MapSunlightToGraph(props) {
   console.log(props.readings);
   const timestamps = props.readings.map((reading) => 
       new Date(reading.modifiedDate)
         .toLocaleTimeString([], { hour: '2-digit', minute:'2-digit', second:'2-digit' }));
-  const temperatures = props.readings.map((reading) => reading.temperature);
+  const sunlight = props.readings.map((reading) => reading.sunlight);
 
   const chartRef = React.useRef();
 
@@ -17,8 +17,8 @@ export function MapReadings(props) {
         labels: timestamps,
         datasets: [
           {
-            label: "Temperature",
-            data: temperatures,
+            label: "Sunlight",
+            data: sunlight,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             borderColor: "rgba(255, 99, 132, 1)",
             borderWidth: 1,
@@ -50,7 +50,7 @@ export function MapReadings(props) {
     return () => {
       chart.destroy();
     };
-  }, [timestamps, temperatures]);
+  }, [timestamps, sunlight]);
 
   return <canvas ref={chartRef} />;
 }

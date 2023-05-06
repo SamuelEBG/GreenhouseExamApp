@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import { ReadingsContext } from "../lib/readingsContext";
-import { MapReadings } from "./mapReadings";
+import { MapHumidityToGraph } from "./graphHumidity";
 import { useLoader } from "../lib/useLoader";
 
-export function DisplayReadings(){
-    const { listTemperature } = useContext(ReadingsContext);
+export function DisplayHumidity(){
+    const { listHumidity } = useContext(ReadingsContext);
     const { data, error, loading } = useLoader(
-        async () => listTemperature()
+        async () => listHumidity()
         ,[]
     );
   
@@ -20,7 +20,7 @@ export function DisplayReadings(){
 
     return (
         <div>
-            <MapReadings readings={data}/>
+            <MapHumidityToGraph readings={data}/>
         </div>
     );
 }

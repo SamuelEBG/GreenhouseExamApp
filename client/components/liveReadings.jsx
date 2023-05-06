@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { ReadingsContext } from "../lib/readingsContext";
-import { MapReadings } from "./mapReadings";
+import { MapTemperatureToGraph } from "./graphTemperature";
 import { useLoader } from "../lib/useLoader";
 
 export function DisplayLiveReadings(){
@@ -19,7 +19,7 @@ export function DisplayLiveReadings(){
 
     return (
         <div>
-            {liveData && <MapReadings readings={liveData} />}
+            {liveData && <MapTemperatureToGraph readings={liveData} />}
         </div>
     );
 }

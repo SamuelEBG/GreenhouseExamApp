@@ -1,12 +1,24 @@
 import React, { useState } from "react";
-import { DisplayReadings } from "../components/displayReadings";
+import { DisplayTemperature } from "../components/displayTemperature";
+import { DisplayHumidity } from "../components/displayHumidity";
+import { DisplaySunlight } from "../components/displaySunlight";
 import { LogOut } from "../components/logout";
 
 export function AdminDashboard(props){
-    const [showGraph, setShowGraph] = useState(false);
+    const [showTemperature, setShowTemperature] = useState(false);
+    const [showHumidity, setShowHumidity] = useState(false);
+    const [showSunlight, setShowSunlight] = useState(false);
 
-    const toggleGraph = () => {
-        setShowGraph(!showGraph);
+    const toggleTemperature = () => {
+        setShowTemperature(!showTemperature);
+    };
+    
+    const toggleHumidity = () => {
+        setShowHumidity(!showHumidity);
+    };
+    
+    const toggleSunlight = () => {
+        setShowSunlight(!showSunlight);
     };
 
     return (
@@ -19,10 +31,18 @@ export function AdminDashboard(props){
                 <LogOut reload={props.reload} />
             </div>
             <div>
-                <button onClick={toggleGraph}>
-                    {showGraph ? "Hide Graph" : "Show Graph"}
+                <button onClick={toggleTemperature}>
+                    {showTemperature ? "Hide Temperature" : "Show Temperature"}
                 </button>
-                {showGraph && <DisplayReadings />}
+                <button onClick={toggleHumidity}>
+                    {showHumidity ? "Hide Humidity" : "Show Humidity"}
+                </button>
+                <button onClick={toggleSunlight}>
+                    {showSunlight ? "Hide Sunlight" : "Show Sunlight"}
+                </button>
+                {showTemperature && <DisplayTemperature />}
+                {showHumidity && <DisplayHumidity />}
+                {showSunlight && <DisplaySunlight />}
             </div>
         </>
     );

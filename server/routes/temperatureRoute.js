@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require("mongoose");
 const { TemperatureModel } = require("../models/readingsModels.js");
 
 const router = express.Router();

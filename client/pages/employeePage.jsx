@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DisplayReadings } from "../components/displayReadings";
+import { DisplayReadings } from "../components/displayTemperature";
 import { DisplayLiveReadings } from "../components/liveReadings";
 import { LogOut } from "../components/logout";
 
