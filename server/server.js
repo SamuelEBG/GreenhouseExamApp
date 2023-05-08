@@ -9,6 +9,7 @@ const { createLoginRouter, requestUser } =  require("./routes/loginRouter.js");
 const temperatureReadings = require("./routes/temperatureRoute");
 const humidityReadings = require("./routes/humidityRoute");
 const sunlightReadings = require("./routes/sunlightRoute");
+const greenhouseId = require("./routes/greenhousesRoute");
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use("/api/login", createLoginRouter());
 app.use("/api/temperature", temperatureReadings);
 app.use("/api/humidity", humidityReadings);
 app.use("/api/sunlight", sunlightReadings);
+app.use("/api/greenhouses", greenhouseId);
 
 /**
  In a single-page application (SPA), the entire application runs in the 

@@ -3,10 +3,10 @@ import { ReadingsContext } from "../lib/readingsContext";
 import { MapHumidityToGraph } from "./graphHumidity";
 import { useLoader } from "../lib/useLoader";
 
-export function DisplayHumidity(){
-    const { listHumidity } = useContext(ReadingsContext);
+export function DisplayHumidity(props){
+    const { listHumidityById } = useContext(ReadingsContext);
     const { data, error, loading } = useLoader(
-        async () => listHumidity()
+        async () => listHumidityById(props.greenhouseId)
         ,[]
     );
   

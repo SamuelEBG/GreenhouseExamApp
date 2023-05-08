@@ -3,10 +3,10 @@ import { ReadingsContext } from "../lib/readingsContext";
 import { MapSunlightToGraph } from "./graphSunlight";
 import { useLoader } from "../lib/useLoader";
 
-export function DisplaySunlight(){
-    const { listSunlight } = useContext(ReadingsContext);
+export function DisplaySunlight(props){
+    const { listSunlightById } = useContext(ReadingsContext);
     const { data, error, loading } = useLoader(
-        async () => listSunlight()
+        async () => listSunlightById(props.greenhouseId)
         ,[]
     );
   

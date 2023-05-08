@@ -11,3 +11,21 @@ body {
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1)
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+width: 400px;
+padding: 20px;
+}
+
+.graph-container {
+    display: inline-block;
+    width: 33.3%;
+    padding: 10px;
+  }

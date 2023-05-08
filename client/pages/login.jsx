@@ -27,28 +27,30 @@ export function Login() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Log in</h1>
-            {error && <ErrorView error={error} />}
-            <div>
-                Username:{" "}
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </div>
-            <div>
-                Password:{" "}
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <div>
-                <button>Log in</button>
-            </div>
-        </form>
+        <div className="container">
+            <form onSubmit={handleSubmit} className="form">
+                <h1>Log in</h1>
+                {error && <ErrorView error={error} />}
+                <div>
+                    Username:{" "}
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div>
+                    Password:{" "}
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <button>Log in</button>
+                </div>
+            </form>
+        </div>
     );
 }

@@ -10,7 +10,6 @@ export function EmployeeDashboard(props){
         setShowGraph(!showGraph);
     };
     */
-
     return (
         <>
             <div>
@@ -21,7 +20,7 @@ export function EmployeeDashboard(props){
                 <LogOut reload={props.reload} />
             </div>
             <div>
-              <DisplayLiveReadings />
+              <DisplayLiveReadings greenhouseId={props.user.worksAt}/>
             </div>
         </>
     );

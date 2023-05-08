@@ -10,26 +10,25 @@ export function Frontpage(){
     const { loading, error, data, reload } = useLoader(
         async () => await fetchJSON("/api/login")
     );
+
     const user = data;
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="container">Loading...</div>;
     }
 
     if (error) {
         //return <div>Error: {error.toString()}</div>;
         return <ErrorMessage error={error} />;
     }
-    console.log(user);
 
     return (
         <div>
-          {user ? (
-                user.role == "employee" ? (
+          {user ? ( user.role == "employee" ? (
                 <EmployeeDashboard user={user} reload={reload} />
             ) : (
             <AdminDashboard user={user} reload={reload}/>
-            )
+            ) 
             ) : (
                 <NotLoggedInUsers/>
             )}

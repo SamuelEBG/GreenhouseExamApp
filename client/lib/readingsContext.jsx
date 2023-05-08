@@ -21,6 +21,18 @@ export const ReadingsContext = React.createContext({
     async createUser(user) {
       return await postJSON("/api/login/new", user);
     },
+    async listTemperatureById(id) {
+      return await fetchJSON(`api/temperature/${id}`);
+    },
+    async listHumidityById(id) {
+      return await fetchJSON(`api/humidity/${id}`);
+    },
+    async listSunlightById(id) {
+      return await fetchJSON(`api/sunlight/${id}`);
+    },
+    async listGreenhouses() {
+      return await fetchJSON(`api/greenhouses`);
+    },
 })
 
 /*

@@ -3,10 +3,10 @@ import { ReadingsContext } from "../lib/readingsContext";
 import { MapTemperatureToGraph } from "./graphTemperature";
 import { useLoader } from "../lib/useLoader";
 
-export function DisplayTemperature(){
-    const { listTemperature } = useContext(ReadingsContext);
+export function DisplayTemperature(props){
+    const { listTemperatureById } = useContext(ReadingsContext);
     const { data, error, loading } = useLoader(
-        async () => listTemperature()
+        async () => listTemperatureById(props.greenhouseId)
         ,[]
     );
   
