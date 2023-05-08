@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/eb5d7a9d-02d7-40b6-97f1-53d57c6a12c5/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/greenhousemonitor",
+    "appService.deploySubpath": "."
+}

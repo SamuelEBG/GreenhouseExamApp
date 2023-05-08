@@ -13,13 +13,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@parcel/transformer-react-refresh-wrap": "^2.7.0",
     "chart.js": "^4.2.1",
+    "parcel": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.9.0",
-    "parcel": "^2.8.3"
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
+    "@parcel/css": "^1.14.0",
     "process": "^0.11.10"
   }
 }
