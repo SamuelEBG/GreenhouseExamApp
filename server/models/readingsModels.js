@@ -30,10 +30,6 @@ temperatureSchema.index({ modifiedDate: 1 }, { expireAfterSeconds: 97200 });
 humiditySchema.index({ modifiedDate: 1 }, { expireAfterSeconds: 97200 });
 sunlightSchema.index({ modifiedDate: 1 }, { expireAfterSeconds: 97200 });
 
-//module.exports.TemperatureModel = mongoose.model("TemperatureModel", temperatureSchema, "temperature");
-//module.exports.HumidityModel = mongoose.model("HumidityModel", humiditySchema, "humidity");
-//module.exports.SunlightModel = mongoose.model("SunlightModel", sunlightSchema, "sunlight");
-
 const TemperatureModel = mongoose.model("TemperatureModel", temperatureSchema, "temperature");
 const HumidityModel = mongoose.model("HumidityModel", humiditySchema, "humidity");
 const SunlightModel = mongoose.model("SunlightModel", sunlightSchema, "sunlight");

@@ -9,40 +9,49 @@ let lastSentTimeSunlight = null;
 
 function sendEmailNotification(element, data, greenhouseId) {
     console.log(data + " " + element + " " + greenhouseId);
-    const errorMailMessage = 
-    "The " +  element + " recorded at greenhouse with id " + greenhouseId + " was not within valid limits, go to " + "greenhouseexammonitor.azurewebsites.net.";
+    let errorMailMessage = "The " +  element + " recorded at greenhouse with id " + greenhouseId + " was not within valid limits, go to " + "greenhouseexammonitor.azurewebsites.net.";
     const now = Date.now(); // get the current time
     switch (element) {
         case "temperature":
             // Check if enough time has passed since last email was sent
             if (lastSentTimeTemperature === null || now - lastSentTimeTemperature >= 3 * 60 * 1000) {
             
-            if (data < 24) sendNotificationEmail("Low " + element, errorMailMessage);
-            if (data > 33) sendNotificationEmail("High " + element, errorMailMessage);
+            if (data < 24) {
+                sendNotificationEmail("Low " + element, errorMailMessage);
+            }
+            if (data > 33) {
+                sendNotificationEmail("High " + element, errorMailMessage);
+            }
             // Update lastSentTime
             lastSentTimeTemperature = now;
             } else {
             // Cooldown timer not expired yet, skip sending email
-            console.log('Cooldown timer active for temperature, skipping email notification');
+                console.log('Cooldown timer active for temperature, skipping email notification');
             }
             break;
         case "humidity":
             if (lastSentTimeHumidity === null || now - lastSentTimeHumidity >= 3 * 60 * 1000) {
-            if (data < 65) sendNotificationEmail("Low " + element, errorMailMessage);
-            if (data > 75) sendNotificationEmail("High " + element, errorMailMessage);
+            if (data < 65) {
+                sendNotificationEmail("Low " + element, errorMailMessage);
+            }
+            if (data > 75) {
+                sendNotificationEmail("High " + element, errorMailMessage);
+            }
                 
             lastSentTimeHumidity = now;
             } else {
-            console.log('Cooldown timer active for humidity, skipping email notification');
+                console.log('Cooldown timer active for humidity, skipping email notification');
             }
             break;
         case "sunlight":
             if (lastSentTimeSunlight === null || now - lastSentTimeSunlight >= 3 * 60 * 1000) {
-            if (data < 15000) sendNotificationEmail("Low " + element, errorMailMessage);
-    
+            if (data < 15000) {
+                sendNotificationEmail("Low " + element, errorMailMessage);
+            }
+
             lastSentTimeSunlight = now;
             } else {
-            console.log('Cooldown timer active for sunlight, skipping email notification');
+                console.log('Cooldown timer active for sunlight, skipping email notification');
             }
             break;
         default:
@@ -122,7 +131,7 @@ mqttConnection.on("message", (topic, data) => {
                 break;
             case "sunlight":
                 if (isBetween7amAnd7pm()) {
-                    if (data < 15000) sendNotificationEmail("Low " + element, errorMailMessage);
+                    sendEmailNotification(element, dataAsNumber, greenhouseId);
                 }
                 readings = new SunlightModel({
                     greenhouseId: greenhouseId,
