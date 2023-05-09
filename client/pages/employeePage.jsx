@@ -13,10 +13,10 @@ export function EmployeeDashboard(props){
     return (
         <>
             <div>
-                <h1>Here are the readings the greenhouse monitor</h1>
                 <h1>
                     Welcome, {props.user.username}
                 </h1>
+                <h1>Here is an overview of the readings from greenhouse number {props.user.worksAt}</h1>
                 <LogOut reload={props.reload} />
             </div>
             <div>
